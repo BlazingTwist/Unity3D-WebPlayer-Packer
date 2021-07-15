@@ -86,9 +86,8 @@ public class MainConsole {
 			webPlayerVersion = args[3];
 			unityEngineVersion = args[4];
 		}
-		if (!outputFile.getParentFile().mkdirs()) {
-			System.out.println("Failed to create directories for output file: " + outputFile.getAbsolutePath());
-		}
+		//noinspection ResultOfMethodCallIgnored
+		outputFile.getParentFile().mkdirs();
 
 		System.out.println("Packing SourceFiles:");
 		for (File sourceFile : sourceFiles) {
@@ -136,10 +135,8 @@ public class MainConsole {
 			targetDirectory = new File(args[2]);
 		}
 
-		if (!targetDirectory.mkdirs()) {
-			System.out.println("Failed to create the targetDirectory");
-			return;
-		}
+		//noinspection ResultOfMethodCallIgnored
+		targetDirectory.mkdirs();
 
 		List<UnityFileDefinition> bundleFiles;
 		try {
