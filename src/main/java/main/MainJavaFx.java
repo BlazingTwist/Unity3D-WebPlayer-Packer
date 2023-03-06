@@ -76,6 +76,10 @@ public class MainJavaFx extends Application {
 
 	private List<File> targetFiles;
 
+	public static void main(String[] args) {
+		launch(args);
+	}
+
 	@Override
 	public void start(Stage stage) {
 		Runtime.getRuntime().addShutdownHook(new Thread(MainJavaFx::onShutdown));
@@ -259,7 +263,7 @@ public class MainJavaFx extends Application {
 						return new Pair<>(file, new Unity3dReader(inputStream.readAllBytes()));
 					} catch (IOException e) {
 						Alert alert = new Alert(Alert.AlertType.ERROR, "Failed to open file: '"
-								+ file.getAbsolutePath() + "', Error: " + e.toString());
+								+ file.getAbsolutePath() + "', Error: " + e);
 						alert.showAndWait();
 						return null;
 					}
@@ -312,7 +316,7 @@ public class MainJavaFx extends Application {
 									.map(Path::toFile)
 									.collect(Collectors.toList()));
 				} catch (IOException e) {
-					Alert alert = new Alert(Alert.AlertType.WARNING, "Unable to resolve directory, exception: " + e.toString());
+					Alert alert = new Alert(Alert.AlertType.WARNING, "Unable to resolve directory, exception: " + e);
 					alert.showAndWait();
 				}
 			} else {
@@ -331,7 +335,7 @@ public class MainJavaFx extends Application {
 			Alert alert = new Alert(Alert.AlertType.INFORMATION, "Repacking complete.");
 			alert.show();
 		} catch (IOException e) {
-			Alert alert = new Alert(Alert.AlertType.ERROR, "Error during repacking: " + e.toString());
+			Alert alert = new Alert(Alert.AlertType.ERROR, "Error during repacking: " + e);
 			alert.showAndWait();
 		}
 		openMainDropWindow();
@@ -391,7 +395,7 @@ public class MainJavaFx extends Application {
 				outputStream.close();
 				extractionCount++;
 			} catch (IOException e) {
-				Alert alert = new Alert(Alert.AlertType.ERROR, "Failed to extract file: " + targetFilePath + ", Error: " + e.toString());
+				Alert alert = new Alert(Alert.AlertType.ERROR, "Failed to extract file: " + targetFilePath + ", Error: " + e);
 				alert.showAndWait();
 			}
 		}

@@ -46,7 +46,7 @@ public class MainConsole {
 		System.out.println("['?'] or ['help'] - show this output");
 		System.out.println("---");
 		System.out.println("['pack', <sourceDirectory>, <webPlayerVersion>, <unityEngineVersion>] - pack all files in sourceDirectory to a 'sourceDirectory.unity3d' bundle");
-		System.out.println("['pack', <sourceDirectory>, <targetFile>, <webPlayerVersion>, <unityEngineVersion>] - pack all files in sourceDirectory, save as targetFIle");
+		System.out.println("['pack', <sourceDirectory>, <targetFile>, <webPlayerVersion>, <unityEngineVersion>] - pack all files in sourceDirectory, save as targetFile");
 		System.out.println("---");
 		System.out.println("['unpack', <bundleFile>] - unpack the bundled files into a directory of the same name as the bundleFile");
 		System.out.println("['unpack', <bundleFile>, <targetDirectory>] - unpack the bundled files into the targetDirectory");
@@ -107,7 +107,7 @@ public class MainConsole {
 			outputStream.close();
 			System.out.println("Packing succeeded.");
 		} catch (IOException e) {
-			System.out.println("Encountered an Error while packing: " + e.toString());
+			System.out.println("Encountered an Error while packing: " + e);
 			e.printStackTrace();
 		}
 	}
@@ -144,7 +144,7 @@ public class MainConsole {
 			Unity3dReader unity3dReader = new Unity3dReader(fileInputStream.readAllBytes());
 			bundleFiles = unity3dReader.getFiles();
 		} catch (IOException e) {
-			System.out.println("Encountered an Error while unpacking: " + e.toString());
+			System.out.println("Encountered an Error while unpacking: " + e);
 			e.printStackTrace();
 			return;
 		}
@@ -164,7 +164,7 @@ public class MainConsole {
 				outputStream.close();
 			}
 		} catch (IOException e) {
-			System.out.println("Encountered an Error while unpacking: " + e.toString());
+			System.out.println("Encountered an Error while unpacking: " + e);
 			e.printStackTrace();
 			return;
 		}
@@ -216,7 +216,7 @@ public class MainConsole {
 			}
 			System.out.println("---- End of Output ----");
 		} catch (IOException e) {
-			System.out.println("Encountered an Error while analyzing: " + e.toString());
+			System.out.println("Encountered an Error while analyzing: " + e);
 			e.printStackTrace();
 		}
 	}

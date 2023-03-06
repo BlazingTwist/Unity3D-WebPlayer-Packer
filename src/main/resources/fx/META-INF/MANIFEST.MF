@@ -1,0 +1,8 @@
+Manifest-Version: 1.0
+Main-Class: main.JavaFxLauncher
+Class-Path: libs/xz-1.9.jar libs/javafx-controls-12.0.2.jar libs/javafx-base-12.0.2-win
+ .jar libs/javafx-base-12.0.2.jar libs/jackson-databind-2.11.3.jar libs/javafx-controls
+ -12.0.2-win.jar libs/javafx-fxml-12.0.2.jar libs/javafx-graphics-12.0.2.jar libs/jacks
+ on-annotations-2.11.3.jar libs/javafx-graphics-12.0.2-win.jar libs/javafx-fxml-12
+ .0.2-win.jar libs/jackson-core-2.11.3.jar
+
